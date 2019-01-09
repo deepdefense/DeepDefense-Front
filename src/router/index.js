@@ -16,6 +16,7 @@ export const constantRouterMap = [
     hidden: true,
     redirect: '/system/service'
   },
+  { path: '*', redirect: '/404', hidden: true },
 
   {
     path: '/system',
@@ -127,7 +128,34 @@ export const constantRouterMap = [
     ]
   },
 
-  { path: '*', redirect: '/404', hidden: true }
+  {
+    path: '/service',
+    name: 'service',
+    component: Layout,
+    redirect: '/service/nfs',
+    meta: {
+      title: '服务'
+    },
+    children: [
+      {
+        path: 'nfs',
+        name: 'nfs',
+        component: _import('service/nfs'),
+        meta: {
+          title: 'NFS'
+        }
+      },
+      {
+        path: 'samba',
+        name: 'samba',
+        component: _import('service/samba'),
+        meta: {
+          title: 'Samba'
+        }
+      }
+    ]
+  }
+
 ]
 
 export default new Router({
