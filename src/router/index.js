@@ -9,82 +9,123 @@ const _import = file => () => import('@/pages/' + file + '.vue')
 
 export const constantRouterMap = [
   { path: '/login', component: _import('login/index'), hidden: true },
-  { path: '/404', component: _import('error-page/404'), hidden: true },
+  { path: '/404', component: _import('error/404'), hidden: true },
   {
     path: '/',
     component: Layout,
     hidden: true,
-    redirect: '/main'
-  },
-  {
-    path: '/service',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Service',
-        component: _import('Service/index'),
-        meta: { title: '服务中心', icon: 'example' }
-      }
-    ]
-  },
-  {
-    path: '/main',
-    component: Layout,
-    children: [
-      {
-      path: 'hall',
-      name: 'hall',
-      component: _import('Management/hall'),
-      meta: { title: '管理大厅', icon: 'example' }
-    }
-    ]
-  },
-  {
-    path: '/functional',
-    component: Layout,
-    meta: { title: '功能中心', icon: 'example' },
-    children: [
-      {
-        path: 'center',
-        name: 'Function',
-        component: _import('Management/hall'),
-        meta: { title: '功能中心', icon: 'example' }
-      }
-    ]
+    redirect: '/system/service'
   },
 
   {
-    path: '/extraction',
+    path: '/system',
     component: Layout,
-    redirect: '/extraction/single',
-    name: 'Extraction',
+    redirect: '/system/service',
+    name: 'System',
     meta: {
-      title: '文档抽取',
-      icon: 'nested'
+      title: '系统信息',
     },
     children: [
       {
-        path: 'single',
-        name: 'Single',
-        component: _import('Management/hall'),
-        meta: { title: '单文件抽取', icon: 'form' }
+        path: 'service',
+        name: 'service',
+        component: _import('system/service'),
+        meta: { title: '服务信息/主机信息' }
       },
       {
-        path: 'multiple',
-        name: 'Multiple',
-        component: _import('Management/hall'),
-        meta: { title: '批量抽取', icon: 'form' }
+        path: 'network',
+        name: 'network',
+        component: _import('system/network'),
+        meta: { title: '网络名' }
       },
       {
-        path: 'scanned',
-        name: 'Scanned',
-        component: _import('Management/hall'),
-        meta: { title: '扫描件抽取', icon: 'form' }
+        path: 'ipSet',
+        name: 'ipSet',
+        component: _import('system/ipSet'),
+        meta: { title: 'IP设置' }
       }
     ]
   },
 
+  {
+    path: '/user',
+    component: Layout,
+    name: 'user',
+    redirect: '/user/userManagement',
+    meta: {
+      title: '用户'
+    },
+    children: [
+      {
+        path: 'userManagement',
+        name: 'userManagement',
+        component: _import('user/userManagement'),
+        meta: {
+          title: '用户管理'
+        }
+      },
+      {
+        path: 'userGroup',
+        name: 'userGroup',
+        component: _import('user/userGroupManagement'),
+        meta: {
+          title: '用户组管理'
+        }
+      },
+      {
+        path: 'workshop',
+        name: 'workshop',
+        component: _import('user/workshop'),
+        meta: {
+          title: '共享文件夹管理'
+        }
+      }
+    ]
+  },
+
+  {
+    path: '/disk',
+    name: 'disk',
+    component: Layout,
+    redirect: 'disk/diskInfo',
+    meta: {
+      title: '硬盘信息'
+    },
+    children: [
+      {
+        path: 'diskInfo',
+        name: 'diskInfo',
+        component: _import('disk/diskInfo'),
+        meta: {
+          title: '磁盘信息'
+        }
+      },
+      {
+        path: 'smart',
+        name: 'smart',
+        component: _import('disk/smart'),
+        meta: {
+          title: '磁盘信息'
+        }
+      },
+      {
+        path: 'raid',
+        name: 'raid',
+        component: _import('disk/raid'),
+        meta: {
+          title: 'raid'
+        }
+      },
+      {
+        path: 'file',
+        name: 'file',
+        component: _import('disk/file'),
+        meta: {
+          title: '文件系统'
+        }
+      }
+    ]
+  },
 
   { path: '*', redirect: '/404', hidden: true }
 ]

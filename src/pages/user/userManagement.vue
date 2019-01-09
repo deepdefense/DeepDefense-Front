@@ -1,12 +1,10 @@
 <template>
-  <div>
-    服务中心
-  </div>
+    <div>userManagement</div>
 </template>
 
 <script>
     export default {
-        name: 'index'
+        name: 'userManagement'
     }
 </script>
 
