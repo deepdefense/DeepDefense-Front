@@ -1,11 +1,11 @@
-# Vue template by GuYi
+# nas
 
 ## 安装&运行
 
 ### 开发
 ``` bash
 # 克隆项目
-git clone http://192.168.3.2/xAlert/vue-template.git
+git clone http://192.168.3.2/qiufeihong/nas.git
 
 # 安装依赖
 npm install
