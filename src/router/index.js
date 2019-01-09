@@ -105,7 +105,7 @@ export const constantRouterMap = [
         name: 'smart',
         component: _import('disk/smart'),
         meta: {
-          title: '磁盘信息'
+          title: 'S.M.A.R.T'
         }
       },
       {
@@ -113,7 +113,7 @@ export const constantRouterMap = [
         name: 'raid',
         component: _import('disk/raid'),
         meta: {
-          title: 'raid'
+          title: 'RAID'
         }
       },
       {
