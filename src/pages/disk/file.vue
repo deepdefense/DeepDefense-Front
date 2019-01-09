@@ -1,12 +1,10 @@
 <template>
-    <div>
-      管理大厅
-    </div>
+    <div>file</div>
 </template>
 
 <script>
     export default {
-        name: 'hall'
+        name: 'file'
     }
 </script>
 
